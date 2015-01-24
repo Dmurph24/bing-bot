@@ -53,8 +53,6 @@ INSERT INTO `BingRewards`.`Machines` (ID, Name) VALUES (3, 'My Server')
 Replace the host, user, and password with your own
 
 ```
-#!python
-
 db = MySQLdb.connect(host="your.hostname.com",
                      user="myuser",
                      passwd="mypass",
@@ -80,7 +78,6 @@ Change MachineID to the value specified in the DB correlating to the machine. (T
 
 
 ```
-
 MachineID = 2
 ```
 
@@ -93,7 +90,6 @@ This is the email that will send a summary of the account points you have earned
 
 
 ```
-
     #Currently supports only gmail accounts
     #Feel free to modify this for any email account
     email = "youremail@gmail.com"
