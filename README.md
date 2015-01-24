@@ -38,7 +38,6 @@ Import db_setup.sql to your server or run the SQL in the file to setup your DB q
 
 
 ```
-#!sql
 INSERT INTO `BingRewards`.`Accounts` (`ID`, `Email`, `Password`, `Points`, `PointsEarned`, `LifetimePoints`, `RanToday`, `MachineID`, `Banned`) VALUES (NULL, 'myfakebingemail@gmail.com', 'mypassword', '0', '0', '0', 'NO', '1', 'NO');
 ```
 
@@ -46,7 +45,6 @@ INSERT INTO `BingRewards`.`Accounts` (`ID`, `Email`, `Password`, `Points`, `Poin
 
 
 ```
-#!sql
 INSERT INTO `BingRewards`.`Machines` (ID, Name) VALUES (3, 'My Server')
 ```
 
@@ -82,7 +80,6 @@ Change MachineID to the value specified in the DB correlating to the machine. (T
 
 
 ```
-#!python
 
 MachineID = 2
 ```
@@ -96,7 +93,6 @@ This is the email that will send a summary of the account points you have earned
 
 
 ```
-#!python
 
     #Currently supports only gmail accounts
     #Feel free to modify this for any email account
@@ -108,8 +104,6 @@ Also, you must specify what email you want to receive the alert with:
 
 
 ```
-#!python
-
 to = "youremail@domain.com"
 ```
 
