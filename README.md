@@ -112,6 +112,10 @@ For example, change 'usr' to your current account on the machine (this has multi
 
 	<notify cmd="/home/usr/bing-bot/notify/onError.sh %a %p %r %P %l %i %e" />
 	...
+	<notify cmd="cd /home/usr &amp;&amp; python -m bing-bot.notify.sendEmail" />
+	...
+        <notify cmd="/home/usr/bing-bot/notify/onScriptFailure.sh -mail" />
+        ...
 
 You can also change the salts between searches, accounts, etc.
 
