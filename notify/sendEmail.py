@@ -17,7 +17,7 @@ def sendEmail(to,message):
     #Currently supports only gmail accounts
     #Feel free to modify this for any email account
     email = "youremail@gmail.com"
-    pass = "yourpass"
+    password = "myemailpass"
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Bing Bot"
@@ -29,7 +29,7 @@ def sendEmail(to,message):
     
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
-    server.login(email,pass)
+    server.login(email,password)
     problems = server.sendmail(email,to,msg.as_string())
     server.quit()
 
@@ -46,6 +46,7 @@ class_str = "tableRow1"
 totalPoints = 0
 lifetimeTotalDollars = 0.0
 moneyMade = 0.0
+bannedFutureMoney = 0.0
 
 cur.execute("SELECT Email, Points, PointsEarned, LifetimePoints, Banned FROM Accounts")
 for row in cur.fetchall() :
@@ -57,6 +58,12 @@ for row in cur.fetchall() :
         moneyMade += (math.floor((row[3]-525) / 475)*5) + 5.0
     else:
         lifetimeTotalDollars += ((row[3]/525.0)*5.0)
+
+    if row[4] == "YES":
+        if row[3] > 525:
+            bannedFutureMoney += (((row[3]-525) % 475)/475.0)*5.0
+        else:
+            bannedFutureMoney += ((row[3]/525.0)*5.0)
     
     if row[4] == "NO":
         msg += "<tr class="+class_str+"><td>%25s</td><td>%6d</td><td>%6d</td><td>%16d</td></tr>" % (row[0], row[1], row[2], row[3])
@@ -70,7 +77,7 @@ msg += "</table><br><br>"
 
 replace_str = "<b>%d Points Earned</b>" % totalPoints
 replace_str += "<br><br>"
-replace_str += "<b>$%.2f (Already received)</b><br><br><b>+ $%.2f (Future)</b><br><br><font size=6><b>= $%.2f</b></font>" % (moneyMade, lifetimeTotalDollars-moneyMade, lifetimeTotalDollars)
+replace_str += "<b>$%.2f (Already received)</b><br><br><b>+ $%.2f (Future)</b><br><br><font size=6><b>= $%.2f</b></font>" % (moneyMade, lifetimeTotalDollars-moneyMade-bannedFutureMoney, lifetimeTotalDollars-bannedFutureMoney)
 
 msg = msg.replace("?&@",replace_str)
 
