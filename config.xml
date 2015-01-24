@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<configuration>
+    <general
+        betweenQueriesInterval="10.0"
+        betweenQueriesSalt="5.0"
+        betweenAccountsInterval="45"
+        betweenAccountsSalt="45" />
+
+    <!--
+      - Note: login and password are optional
+      -       if not set, the proxy is considered open
+      -       only Basic HTTP Authentication is currently supported
+      -       protocols: a comma separated list of values - i.e, "http,https"
+    <proxy protocols="http,https" url="218.204.159.45:8123" login="John Smith" password="xxx" />
+    -->
+
+    <accounts>
+    </accounts>
+
+    <events>
+        <onError>
+            <retry interval="15" salt="13.5" count="3" />
+            <notify cmd="/home/usr/bing-bot/notify/onError.sh %a %p %r %P %l %i %e" />
+        </onError>
+        <onComplete>
+            <retry if="%p lt 16" interval="15" salt="13.5" count="3" />       
+        </onComplete>
+        <onScriptComplete>
+            <notify cmd="cd /home/usr &amp;&amp; python -m bing-bot.notify.sendEmail" />
+        </onScriptComplete>
+        <onScriptFailure>
+            <notify cmd="/home/usr/bing-bot/notify/onScriptFailure.sh -mail" />
+        </onScriptFailure>
+    </events>
+
+    <!--
+      - generator="MODULE" must be a module in pkg/queryGenerators
+      - current modules:
+      -     bing - uses today's bing news page. Generates terms which may be partial words.
+      -     wikipedia - uses today's wikipedia. Generates terms with whole words.
+      -     googleTrends - uses today's google trends, and google suggested searches. This generatoer
+      -	                   generates whole words, generally consistent with a search syntax.  These terms
+      -                    are anything trending and can be NSFW or terms for illegal items.
+    -->
+    <queries generator="wikipedia" />
+</configuration>
