@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 23, 2015 at 11:51 AM
+-- Generation Time: Jan 24, 2015 at 11:25 AM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.3
 
@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS `Accounts` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Points` int(11) NOT NULL DEFAULT '0',
-  `PointsEarned` int(11) NOT NULL,
-  `LifetimePoints` int(11) NOT NULL,
+  `PointsEarned` int(11) NOT NULL DEFAULT '0',
+  `LifetimePoints` int(11) NOT NULL DEFAULT '0',
   `RanToday` varchar(255) NOT NULL DEFAULT 'NO',
   `MachineID` int(11) NOT NULL,
   `Banned` varchar(255) NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,9 @@ CREATE TABLE IF NOT EXISTS `Settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
