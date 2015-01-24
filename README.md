@@ -38,7 +38,6 @@ Import db_setup.sql to your server or run the SQL in the file to setup your DB q
 
 
 ```
-#!sql
 INSERT INTO `BingRewards`.`Accounts` (`ID`, `Email`, `Password`, `Points`, `PointsEarned`, `LifetimePoints`, `RanToday`, `MachineID`, `Banned`) VALUES (NULL, 'myfakebingemail@gmail.com', 'mypassword', '0', '0', '0', 'NO', '1', 'NO');
 ```
 
@@ -46,7 +45,6 @@ INSERT INTO `BingRewards`.`Accounts` (`ID`, `Email`, `Password`, `Points`, `Poin
 
 
 ```
-#!sql
 INSERT INTO `BingRewards`.`Machines` (ID, Name) VALUES (3, 'My Server')
 ```
 
@@ -55,8 +53,6 @@ INSERT INTO `BingRewards`.`Machines` (ID, Name) VALUES (3, 'My Server')
 Replace the host, user, and password with your own
 
 ```
-#!python
-
 db = MySQLdb.connect(host="your.hostname.com",
                      user="myuser",
                      passwd="mypass",
@@ -82,8 +78,6 @@ Change MachineID to the value specified in the DB correlating to the machine. (T
 
 
 ```
-#!python
-
 MachineID = 2
 ```
 
@@ -96,8 +90,6 @@ This is the email that will send a summary of the account points you have earned
 
 
 ```
-#!python
-
     #Currently supports only gmail accounts
     #Feel free to modify this for any email account
     email = "youremail@gmail.com"
@@ -108,8 +100,6 @@ Also, you must specify what email you want to receive the alert with:
 
 
 ```
-#!python
-
 to = "youremail@domain.com"
 ```
 
@@ -121,6 +111,10 @@ Make sure all your directories for events are correct. They wont be, so you will
 For example, change 'usr' to your current account on the machine (this has multiple occurrences):
 
 	<notify cmd="/home/usr/bing-bot/notify/onError.sh %a %p %r %P %l %i %e" />
+	...
+	<notify cmd="cd /home/usr &amp;&amp; python -m bing-bot.notify.sendEmail" />
+	...
+	<notify cmd="/home/usr/bing-bot/notify/onScriptFailure.sh -mail" />
 	...
 
 You can also change the salts between searches, accounts, etc.
@@ -141,6 +135,6 @@ To get into cron:
 
 Then add these lines to cron
 
-	0 */4 * * * sleep $(($RANDOM \% 120))m && python /home/usr/bing-bot/main.py
+	0 */4 * * * sleep $(($RANDOM \% 120))m && python2 /home/usr/bing-bot/main.py
 
 	0 0 * * * python /home/usr/bing-bot/account-reset.py
