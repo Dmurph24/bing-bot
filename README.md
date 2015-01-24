@@ -141,6 +141,6 @@ To get into cron:
 
 Then add these lines to cron
 
-	0 */4 * * * sleep $(($RANDOM \% 120))m && python /home/usr/bing-bot/main.py
+	0 */4 * * * sleep $(($RANDOM \% 120))m && python2 /home/usr/bing-bot/main.py
 
 	0 0 * * * python /home/usr/bing-bot/account-reset.py
