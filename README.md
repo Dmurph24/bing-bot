@@ -131,7 +131,6 @@ You can also change the salts between searches, accounts, etc.
 
 7) Crontab 
 =======
-Make sure you change 'usr' to your current account on the machine
 
 To get into cron:
 
@@ -139,6 +138,8 @@ To get into cron:
 
 Then add these lines to cron
 
-	0 */4 * * * sleep $(($RANDOM \% 120))m && python2 /home/usr/bing-bot/main.py
+Make sure you change 'usr' to your current account on the machine
+
+	0 6,10,14,18,22 * * * sleep $(($RANDOM \% 120))m && python2 /home/usr/bing-bot/main.py
 
 	0 0 * * * python /home/usr/bing-bot/account-reset.py
