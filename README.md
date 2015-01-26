@@ -1,6 +1,10 @@
 BingBot
 ===========
 
+This is built off of Sealemar's BingReward program, however it supports Database interaction and a better email with html.
+
+https://github.com/sealemar/BingRewards
+
 This script will allow you to run an unlimited number of accounts on bing rewards (5 for each IP address you own). It uses a DB, which I will explain how to configure, to sync all your accounts together if you are using multiple machines.
 This is made for any device that can run python, but is optimized for linux-based OS.
 
