@@ -140,6 +140,6 @@ Then add these lines to cron
 
 Make sure you change 'usr' to your current account on the machine
 
-	0 6,10,14,18,22 * * * sleep $(($RANDOM \% 120))m && python2 /home/usr/bing-bot/main.py
+	0 9,13,17,21 * * * /bin/sleep `/usr/bin/expr $RANDOM \% 7200`; python2 /home/usr/bing-bot/main.py
 
 	0 0 * * * python /home/usr/bing-bot/account-reset.py
