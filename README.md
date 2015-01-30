@@ -138,7 +138,7 @@ To get into cron:
 
 Then add these lines to cron
 
-Make sure you change 'usr' to your current account on the machine
+Make sure you change 'usr' in '/home/usr/bing-bot/main.py' to your current account on the machine
 
 	0 9,13,17,21 * * * /bin/sleep `/usr/bin/expr $RANDOM \% 7200`; python2 /home/usr/bing-bot/main.py
 
