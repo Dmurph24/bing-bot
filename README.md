@@ -125,9 +125,9 @@ You can also change the salts between searches, accounts, etc.
 
 	<general
         betweenQueriesInterval="10.0"
-        betweenQueriesSalt="5.0"
-        betweenAccountsInterval="45"
-        betweenAccountsSalt="45" />
+        betweenQueriesSalt="8.0"
+        betweenAccountsInterval="120"
+        betweenAccountsSalt="900" />
 
 7) Crontab 
 =======
