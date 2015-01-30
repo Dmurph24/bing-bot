@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import MySQLdb
+import sys
+import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "pkg"))
 import db_config as DBConfig
