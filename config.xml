@@ -5,7 +5,11 @@
         betweenQueriesInterval="10.0"
         betweenQueriesSalt="8.0"
         betweenAccountsInterval="120"
-        betweenAccountsSalt="900" />
+        betweenAccountsSalt="900" 
+        addSearchesDesktop="10"
+        addSearchesDesktopSalt="10"
+        addSearchesMobile="10"
+        addSearchesMobileSalt="10" />
 
     <!--
       - Note: login and password are optional
