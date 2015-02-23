@@ -122,9 +122,10 @@ def earnRewards(config, httpHeaders, userAgents, reportItem, password):
         reportItem.error = e
         print "Connection reset by peer."
 
-        except BingAccountError as e:
-            reportItem.error = e
-            print "BingAccountError: %s" % e
+    except BingAccountError as e:
+        reportItem.error = e
+        print "BingAccountError: %s" % e
+            
     finally:
         if not noException:
             print
