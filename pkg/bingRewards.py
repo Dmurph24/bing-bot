@@ -171,9 +171,9 @@ class BingRewards:
         s += len("t.innerHTML='")
         e = page.index("'", s)
         rewardsText = page[s:e]
-         if rewardsText == 'Rewards': # The account is banned
+        if rewardsText == 'Rewards': # The account is banned
             raise helpers.BingAccountError("Could not get the number of rewards: Account banned (at least temporarily)")
-         else:
+        else:
             return int(rewardsText)
 
     def __processHit(self, reward):
