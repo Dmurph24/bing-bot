@@ -25,13 +25,14 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "pkg"))
 sys.path.append(os.path.join(os.path.dirname(__file__), "pkg", "queryGenerators"))
 
 from bingAuth import BingAuth, AuthenticationError
-from bingRewards import BingRewards
+from bingRewards import BingRewards, BannedError
 from config import BingRewardsReportItem, Config, ConfigError
 from eventsProcessor import EventsProcessor
 import db_config as DBConfig
 import bingCommon
 import bingFlyoutParser as bfp
 import helpers
+from helpers import BingAccountError 
 
 verbose = False
 totalPoints = 0
@@ -121,6 +122,9 @@ def earnRewards(config, httpHeaders, userAgents, reportItem, password):
         reportItem.error = e
         print "Connection reset by peer."
 
+        except BingAccountError as e:
+            reportItem.error = e
+            print "BingAccountError: %s" % e
     finally:
         if not noException:
             print
