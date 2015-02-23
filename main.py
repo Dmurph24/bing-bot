@@ -25,7 +25,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "pkg"))
 sys.path.append(os.path.join(os.path.dirname(__file__), "pkg", "queryGenerators"))
 
 from bingAuth import BingAuth, AuthenticationError
-from bingRewards import BingRewards, BannedError
+from bingRewards import BingRewards
 from config import BingRewardsReportItem, Config, ConfigError
 from eventsProcessor import EventsProcessor
 import db_config as DBConfig
