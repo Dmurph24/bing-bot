@@ -142,6 +142,6 @@ Make sure you change 'usr' in '/home/usr/bing-bot/main.py' to your current accou
 	
 	SHELL=/bin/bash #place this at the top of crontab
 
-	0 9,13,17,21 * * * /bin/sleep `/usr/bin/expr $RANDOM \% 7200`; python2 /home/usr/bing-bot/main.py
+	0 9,17 * * * /bin/sleep `/usr/bin/expr $RANDOM \% 14400`; python2 /home/usr/bing-bot/main.py
 
 	0 0 * * * python /home/usr/bing-bot/account-reset.py
