@@ -6,9 +6,9 @@
         betweenQueriesSalt="8.0"
         betweenAccountsInterval="120"
         betweenAccountsSalt="900" 
-        addSearchesDesktop="10"
+        addSearchesDesktop="0"
         addSearchesDesktopSalt="10"
-        addSearchesMobile="10"
+        addSearchesMobile="0"
         addSearchesMobileSalt="10" />
 
     <!--
